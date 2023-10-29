@@ -1,11 +1,14 @@
 import { getProjects } from "../../sanity/sanity-utils";
 
-export default function Home() {
-  const projects = getProjects();
+export default async function Home() {
+  const projects = await getProjects();
 
   return (
     <div>
-      <h1>All projects</h1>
+      <h1 className="mb-10">All projects</h1>
+      {projects.map((project) => (
+        <div key={project._id}>{project.name}</div>
+      ))}
     </div>
   );
 }
