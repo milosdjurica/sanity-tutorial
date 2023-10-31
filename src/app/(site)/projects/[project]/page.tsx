@@ -1,8 +1,8 @@
 import React from "react";
 import { revalidatePath } from "next/cache";
-import { getProject } from "../../../../sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { getProject } from "../../../../../sanity/sanity-utils";
 
 type Props = {
   params: { project: string };
