@@ -3,9 +3,10 @@ import { Project } from "../types/project";
 
 export async function getProjects(): Promise<Project[]> {
   const client = createClient({
-    projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+    projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
     dataset: "production",
     apiVersion: "2023-10-29",
+    // useCdn: false,
   });
 
   // ! Have a caching problem, try to fix it later....
@@ -21,9 +22,6 @@ export async function getProjects(): Promise<Project[]> {
         "image":image.asset->url,
         url,
         content
-    }`,
-    {
-      revalidate: 10,
-    }
+    }`
   );
 }

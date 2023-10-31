@@ -1,7 +1,9 @@
+import { revalidatePath } from "next/cache";
 import { getProjects } from "../../sanity/sanity-utils";
 import Image from "next/image";
 
 export default async function Home() {
+  revalidatePath("/");
   const projects = await getProjects();
 
   return (
